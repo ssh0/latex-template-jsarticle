@@ -1,0 +1,94 @@
+\documentclass{jsarticle}
+
+% rendeing with dvipdfmx
+\usepackage[dvipdfmx]{graphicx}
+
+% floating image
+\usepackage{float}
+
+% ams series for math
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{ascmac}
+
+% use hyperref & 日本語での栞の文字化けを防ぐ
+\ifx\kanjiskip\undefined\else
+  \usepackage{atbegshi}
+  \ifx\ucs\undefined
+    \ifnum 42146=\euc"A4A2
+      \AtBeginShipoutFirst{\special{pdf:tounicode EUC-UCS2}}
+    \else
+      \AtBeginShipoutFirst{\special{pdf:tounicode 90ms-RKSJ-UCS2}}
+    \fi
+  \else
+    \AtBeginShipoutFirst{\special{pdf:tounicode UTF8-UCS2}}
+  \fi
+  \usepackage[dvipdfmx]{hyperref}
+\fi
+
+% for code
+% \usepackage{moreverb}
+
+% 数式改ページの許可
+\allowdisplaybreaks[1]
+
+% 定義，定理，証明を日本語表記に
+\theoremstyle{definition}
+\newtheorem{theorem}{定理}
+\newtheorem*{theorem*}{定理}
+\newtheorem{definition}[theorem]{定義}
+\newtheorem*{definition*}{定義}
+\renewcommand\proofname{\bf 証明}
+
+\hypersetup{breaklinks=true,
+            pdfauthor={著者},
+            pdftitle={タイトル},
+            colorlinks=true,
+            citecolor=black,
+            urlcolor=black,
+            linkcolor=black,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+
+% "\vector{a}" で太字ベクトル
+\def\vector#1{\mbox{\boldmath \(#1\)}}
+
+\title{タイトル}
+\author{著者}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+% % 章・節・図の番号の開始番号を指定(1つ前の数字指定する)。
+% \setcounter{section}{5}
+% \setcounter{subsection}{2}
+% \setcounter{figure}{8}
+
+% % 『第n章』のように出力
+% \renewcommand{\presectionname}{第}
+% \renewcommand{\postsectionname}{章}
+
+%%%%%%%%%%%%%%%%%%%%    本文    %%%%%%%%%%%%%%%%%%%%
+
+% 図の挿入(その場に出力)
+% \begin{figure}[H]
+%     \begin{center}
+%         \includegraphics[width=0.6\textwidth]{./path/to/some/img/figure_01.pdf}
+%         \caption{キャプション}
+%         \label{f1}
+%     \end{center}
+% \end{figure}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%    本文    %%%%%%%%%%%%%%%%%%%%
+
+% % 参考文献
+% \bibliographystyle{junsrt}
+% % reference.bib を参照するとき
+% \bibliography{reference}
+
+\end{document}
